@@ -1,14 +1,21 @@
 const link = "https://render-spinoff-bypass-1.onrender.com"
 console.log("starting from render 2");
 setInterval(() => {
-    fetch(link).then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+    try{
+        fetch(link)
+        .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+        
+            console.log(response.data)
+            // console.log(response)
+          })
+    }
+    catch(error) {
+
+    }
     
-        console.log(response.data)
-        console.log(response)
-      })
 }, 1000); //every 1/2 minutes
 
 const express = require('express')
